@@ -5,6 +5,7 @@ import com.eviware.soapui.support.types.StringToStringsMap;
 
 def project = testRunner.testCase.testSuite.project;
 com.eviware.soapui.SoapUI.logMonitor.getLogArea("script log").clear()
+
 project.getTestSuiteList().each{
     tsuite->
         tsuite.getTestCaseList().each {
