@@ -1,21 +1,20 @@
 import com.eviware.soapui.model.testsuite.Assertable
 
-def tcase = testRunner.testCase
+def tcase = testRunner.testCase;
 log.info("Assertion Status for : ${tcase.getLabel()}")
-tcase.getTestStepList().each 
+tcase.getTestStepList().each
 {
-  tstep->
-          log.info("==> " + tstep.getLabel())
-          tstep.getAssertionList().each
+  it->
+          log.info("==> " + it.getLabel())
+          assertions = it.testStep.getAssertionList().size() - 1
+          for(num in 0..assertions)
           {
-            assert->
-                  log.info(assert.getStatus() + " on asserting for - " + assert.getName())
-                  error = assert.getErrors()
-                  if (error != null)
-                  {
-                      log.info(error[0].getMessage())
-                  }
+             log.info("${it.getAssertionAt(num).getStatus()}  on asserting for - ${it.getAssertionAt(num).getName()}")
+             error = it.getAssertionAt(num).getErrors()
+             if (error != null)
+             {
+                 log.info(error[0].getMessage())
+             }
           }
             
 }
-
