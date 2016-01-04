@@ -7,7 +7,7 @@ Groovy Snippets used in SoapUI & SoapUI pro :)
 3. add-edit headers & mediatype of HTTP request
 4. Get Assertion & their status at test case level
 5. add header without overwriting existing ones
-
+6. clone assertion from step to step
 
 
 ##### Contribution
